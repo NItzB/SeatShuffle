@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeatShuffle - Premium Table Seating</title>
+  <meta name="description" content="A premium table seating arranger with shuffle animation and sound effects.">
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>SeatShuffle</h1>
+      <p>Premium Seating Arrangement</p>
+    </header>
+
+    <main>
+      <!-- Step 1: Setup -->
+      <section id="step-1" class="glass-panel wizard-step active">
+        <div class="step-header">
+          <h2>Step 1: Table Setup</h2>
+          <p>Choose your table shape and number of seats.</p>
+        </div>
+
+        <div class="input-group">
+          <label for="table-type">Table Shape</label>
+          <div class="select-wrapper">
+            <select id="table-type">
+              <option value="round">Round Table</option>
+              <option value="square">Square Table</option>
+              <option value="rectangle" selected>Rectangular Table</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="seat-count">Total Seats</label>
+          <input type="number" id="seat-count" min="1" value="4" />
+        </div>
+
+        <button id="btn-to-step-2" class="primary-btn">
+          <span class="btn-text">Next: Arrange Seats</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </section>
+
+      <!-- Step 2: Arrange -->
+      <section id="step-2" class="glass-panel wizard-step hidden">
+        <div class="step-header">
+          <h2>Step 2: Arrange Seats</h2>
+          <p>Drag the dashes to your desired positions.</p>
+        </div>
+
+        <div id="visualization-step-2">
+          <div id="table-container-step-2">
+            <div id="table" class="table-shape round">
+              <div class="table-surface"></div>
+            </div>
+            <!-- Interactive Seats injected here -->
+          </div>
+        </div>
+
+        <div class="step-controls">
+          <button id="btn-back-to-step-1" class="secondary-btn">Back</button>
+          <button id="btn-to-step-3" class="primary-btn">Next: Add Names</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Input & Shuffle -->
+      <section id="step-3" class="glass-panel wizard-step hidden">
+        <div class="step-header">
+          <h2>Step 3: Add Names & Shuffle</h2>
+          <p>Enter names and watch them shuffle into place.</p>
+        </div>
+
+        <div class="input-group">
+          <label for="names-input">Participant Names</label>
+          <textarea id="names-input" placeholder="Enter names separated by commas..."></textarea>
+        </div>
+
+        <div class="step-controls">
+          <button id="btn-back-to-step-2" class="secondary-btn">Back</button>
+          <button id="shuffle-btn" class="primary-btn">
+            <span class="btn-text">Shuffle Seats</span>
+            <span class="btn-icon">🎲</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
